@@ -13,7 +13,7 @@
     "eggPlugin"
   ],
   "dependencies": {
-    "beidou-isomorphic": "2.0.0-alpha.0",
+    "beidou-isomorphic": "^2.0.0",
     "koa-compose": "^4.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
