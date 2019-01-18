@@ -1,17 +1,15 @@
 # egg-beidou
 
-[Support React SSR in Egg Framework]
+[支持 egg 框架下的 SSR 服务]
 
-neet to open the plugin for using
+## 功能
 
-## Feature
+### 使用方式
 
-### extends
+- app.beidou 将渲染对象赋值在 app 下，方便调用
+- ctx.beidou 将 SSR 渲染功能注入 context 上下文中方便调用
 
-- app.beidou the Beidou plugin Object
-- ctx.beidou render the file for SSR
-
-## Configure
+## 配置
 
 ```js
 // plugin.js
@@ -26,15 +24,15 @@ exports.beidou = {
 
 // config.default.js
 exports.beidou = {
-  viewPath: '', // render the base path
-  static: true, //  whether use static render for SSR
-  stream: false, //  whether use stream render for SSR
+  viewPath: '', //   打包后的文件base path
+  static: true, //   是否开启 static 渲染
+  stream: false, //  是否开启 stream 渲染
 };
 ```
 
-## Example
+## 示例
 
-> see more example to test/exmaple folder
+> 更多示例可查看单测目录下的 example 目录
 
 ```js
 // Controller
@@ -44,7 +42,7 @@ exports.index = async function(ctx) {
   ctx.body = await ctx.beidou('simple/index.js');
 };
 
-// if you need pass server data to render
+// 将数据传入 react render中的this.props
 exports.simple = async function(ctx) {
   ctx.body = await ctx.beidou('simple/index.js', {
     data: {
